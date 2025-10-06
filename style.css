@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+  overflow: hidden;
+  color: white;
+}
+
+/* Fondo animado */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.6) blur(2px);
+}
+
+/* Capa translúcida */
+.overley {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  z-index: -1;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 100px;
+  height: 100vh;
+}
+
+/* Izquierda */
+.menu-left {
+  max-width: 50%;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #a9b9ff;
+  margin-bottom: 40px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 20px;
+  width: 280px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-btn::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: #4db8ff;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover::before {
+  transform: scaleY(1);
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #4db8ff;
+  transform: translateX(5px);
+}
+
+/* Panel lateral derecho */
+.side-panel {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  border-left: 2px solid #4db8ff;
+  width: 300px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.side-panel h2 {
+  color: #4db8ff;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.side-panel ul {
+  list-style: none;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.small-note {
+  font-size: 0.8rem;
+  color: #a9b9ff;
+  margin-top: 15px;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: #a9b9ff;
+}
+
+/* Subpáginas */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #4db8ff;
+  backdrop-filter: blur(5px);
+}
+
+.topbar h1 {
+  color: #4db8ff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+.back-btn {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #4db8ff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #4db8ff;
+  color: black;
+}
+
+/* Panel de contenido */
+.content-panel {
+  position: relative;
+  margin: 100px auto;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.content-panel h2 {
+  color: #4db8ff;
+  margin-bottom: 15px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #4db8ff;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.letter {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #d6e3ff;
+  white-space: pre-line;
+}
+
+.symbols {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.distance-stats p {
+  margin-top: 8px;
+  color: #a9b9ff;
+}
+
+/* ======== FONDOS CON IMAGEN Y MOVIMIENTO ======== */
+.bg-momentos, .bg-distancia, .bg-carta, .bg-reino {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bgMove 12s infinite alternate ease-in-out;
+}
+
+/* Animación sutil del fondo */
+@keyframes bgMove {
+  0% { transform: scale(1) translateY(0); filter: brightness(1); }
+  100% { transform: scale(1.05) translateY(-1%); filter: brightness(1.1); }
+}
+
+/* Fondos específicos por página */
+.bg-momentos { background-image: url("../img/fondo-momentos.jpg"); }
+.bg-distancia { background-image: url("../img/fondo-distancia.jpg"); }
+.bg-carta { background-image: url("./assets/videollamadaella.png"); }
+.bg-reino { background-image: url("../img/fondo-reino.jpg"); }
+
+/* Overlay para oscurecer el fondo */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(10,15,30,0.8));
+  z-index: 0;
+}
+
